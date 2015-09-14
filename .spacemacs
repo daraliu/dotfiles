@@ -23,9 +23,9 @@ values."
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     ;;; !config
+     ;;; +config
      ansible
-     ;;; !lang
+     ;;; +lang
      clojure
      common-lisp
      emacs-lisp
@@ -49,13 +49,13 @@ values."
      git
      github
      version-control
-     ;;; !tools
+     ;;; +tools
      tmux
      vagrant
-     ;;; !vim
+     ;;; +vim
      evil-commentary
      vim-empty-lines
-     ;;; !window-management
+     ;;; +window-management
      eyebrowse
      ;;; other
      auto-completion
