@@ -23,9 +23,9 @@ values."
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     ;;; +config
+     ;; +config
      ansible
-     ;;; +lang
+     ;; +lang
      clojure
      common-lisp
      emacs-lisp
@@ -45,19 +45,19 @@ values."
      sql
      typescript
      yaml
-     ;;; !source-control
+     ;; +source-control
      git
      github
      version-control
-     ;;; +tools
+     ;; +tools
      tmux
      vagrant
-     ;;; +vim
+     ;; +vim
      evil-commentary
      vim-empty-lines
-     ;;; +window-management
+     ;; +window-management
      eyebrowse
-     ;;; other
+     ;; other
      auto-completion
      better-defaults
      colors
@@ -252,8 +252,9 @@ layers configuration. You are free to put any user code."
   (setq browse-url-browser-function 'browse-url-generic
         browse-url-generic-program "google-chrome-stable")
 
-  ;; Visual line length set to 100
-  (define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
+  ;; Visual line length is displayed
+  (define-globalized-minor-mode global-fci-mode
+    fci-mode (lambda () (fci-mode 1)))
   (global-fci-mode 1)
 
   ;; Global line numbers
