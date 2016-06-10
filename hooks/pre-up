@@ -1,0 +1,5 @@
+#!/bin/sh
+
+if [ ! -e $HOME/.rcrc ]; then
+  ln -s $HOME/.dotfiles/rcrc $HOME/.rcrc
+fi
