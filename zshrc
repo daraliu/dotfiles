@@ -42,8 +42,8 @@ bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
 
 # dircolors
-eval $(dircolors ~/.dircolors)
-alias ls="ls -h --color=auto"
+# eval $(dircolors ~/.dircolors)
+# alias ls="ls -h --color=auto"
 
 export TERM=xterm-256color
 
@@ -81,3 +81,4 @@ done
 
 ### run after adding more plugins
 rm -f ~/.zcompdump; compinit
+source ~/.zsh/antigen-hs/init.zsh
