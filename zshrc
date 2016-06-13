@@ -75,6 +75,8 @@ sources=(
     'highlight'
 )
 
+alias docker-compose-restart='docker-compose rm --all -f && docker-compose build && docker-compose up'
+
 for src in $sources; do
     source $DOTSPATH/zsh/$src.zsh
 done
