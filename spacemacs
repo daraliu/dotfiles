@@ -37,7 +37,8 @@ values."
      javascript
      lua
      markdown
-     python
+     (python :variables
+             flycheck-flake8-maximum-line-length 99)
      ruby
      scala
      shell-scripts
@@ -307,6 +308,7 @@ you should place your code here."
 
   ;; Visual line length set to 100
   (define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
+  (setq fci-rule-column 100)
   (global-fci-mode 1)
 
   ;; ;; Eclim
