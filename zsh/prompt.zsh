@@ -49,4 +49,4 @@ PROMPT='
 %(?.%F{blue}.%F{red})λ%f $(p_colored_path)$(p_envs)$(p_vcs)
 $(p_arrow) '
 
-RPROMPT=''
+RPROMPT="%"
