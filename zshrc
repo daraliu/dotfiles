@@ -14,8 +14,6 @@ promptinit
 colors
 
 source $HOME/.profile
-alias ls='ls --color=auto'
-#PS1='[\u@\h \W]\$ '
 
 # History settings
 HISTFILE=~/.zhistory
@@ -43,7 +41,6 @@ bindkey '^e' end-of-line
 
 # dircolors
 # eval $(dircolors ~/.dircolors)
-# alias ls="ls -h --color=auto"
 
 export TERM=xterm-256color
 
@@ -56,26 +53,13 @@ esac
 
 # strict control over source order
 sources=(
-    #'hub'
-    'path'
-    #'rbenv'
-    #'chruby'
-    #'npm'
     'vcsinfo'
     'prompt'
     'completions'
     'zle'
-    #'functions'
-    #'alias'
-    #'linux'
-    #'osx'
-    #'gtags'
-    #'gnome-keyring'
-    #'fzf'
+    'alias'
     'highlight'
 )
-
-alias docker-compose-restart='docker-compose rm --all -f && docker-compose build && docker-compose up'
 
 for src in $sources; do
     source $DOTSPATH/zsh/$src.zsh
