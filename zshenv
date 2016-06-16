@@ -1,20 +1,22 @@
 typeset -U path
 
-# prepends
-path=(
-    # ~/.cargo/bin
-    # ~/.multirust/toolchains/stable/cargo/bin
-    # ~/.multirust/toolchains/beta/cargo/bin
-    # ~/.multirust/toolchains/nightly/cargo/bin
-    # ~/.rbenv/bin
-    ~/bin
-    ~/.virtualenvs/pygmentize/bin
-    ~/.cabal/bin
-    "$path[@]")
+# # prepends
+# path=(
+#     # ~/.cargo/bin
+#     # ~/.multirust/toolchains/stable/cargo/bin
+#     # ~/.multirust/toolchains/beta/cargo/bin
+#     # ~/.multirust/toolchains/nightly/cargo/bin
+#     # ~/.rbenv/bin
+#     ~/bin
+#     ~/.virtualenvs/pygmentize/bin
+#     ~/.cabal/bin
+#     "$path[@]")
 
 # appends
 # path+=(/usr/local/texlive/2013/bin/x86_64-linux)
 # path+=(~/texlive/2015/bin/x86_64-linux)
+
+source $HOME/.profile
 
 # prune paths that don't exist
 path=($^path(N))
