@@ -1,3 +1,5 @@
 #/bin/sh
 
 solarized-dark-termite
+mkdir -p ~/.mpd/playlists
+mkdir -p ~/music
