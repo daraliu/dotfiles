@@ -29,3 +29,9 @@ fi
 if command_exists docker-compose; then
     alias docker-rbu='docker-compose rm --all -f && docker-compose build && docker-compose up'
 fi
+
+if command_exists ffmpeg; then
+    ytconvert() {
+        ffmpeg -i "$1" -c:v libx264 -crf 18 -preset slow -pix_fmt yuv420p -c:a copy "$2.mkv"
+    }
+fi
