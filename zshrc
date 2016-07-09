@@ -29,8 +29,6 @@ setopt NOTIFY
 setopt SHARE_HISTORY
 setopt INTERACTIVE_COMMENTS
 
-source ~/.zsh/antigen-hs/init.zsh
-
 # from oh-my-zsh vi-mode pending pull request pending PR
 # https://github.com/robbyrussell/oh-my-zsh/pull/4225
 # allow ctrl-r for searching history backward while in insert mode
@@ -45,12 +43,7 @@ bindkey '^e' end-of-line
 
 export TERM=xterm-256color
 
-# dynamic terminal window title
-case $TERM in
-    xterm*)
-        precmd () { print -Pn "\e]2;%n@%M | %~\a" }
-        ;;
-esac
+source ~/.zsh/antigen-hs/init.zsh
 
 # strict control over source order
 sources=(
@@ -63,9 +56,8 @@ sources=(
 )
 
 for src in $sources; do
-    source $DOTSPATH/zsh/$src.zsh
+    source ${DOTSPATH}/zsh/${src}.zsh
 done
 
 ### run after adding more plugins
 rm -f ~/.zcompdump; compinit
-source ~/.zsh/antigen-hs/init.zsh

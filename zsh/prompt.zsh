@@ -22,24 +22,24 @@ export PROMPT_CMD_MAX_EXEC_TIME=5
 
 # display mode-aware arrow
 function p_arrow {
-  if [[ $KEYMAP = "vicmd" ]]; then
-    local arrow_color="magenta"
-  else
-    local arrow_color="cyan"
-  fi
-  echo "%F{${arrow_color}}»%f"
+    if [[ $KEYMAP = "vicmd" ]]; then
+        local arrow_color="magenta"
+    else
+        local arrow_color="cyan"
+    fi
+    echo "%F{${arrow_color}}»%f"
 }
 
 # display colored path
 function p_colored_path {
-  local slash="%F{cyan}/%f"
-  echo "${${PWD/#$HOME/~}//\//$slash}"
+    local slash="%F{cyan}/%f"
+    echo "${${PWD/#$HOME/~}//\//$slash}"
 }
 
 # display git info
 function p_vcs {
-  vcs_info
-  echo $vcs_info_msg_0_
+    vcs_info
+    echo $vcs_info_msg_0_
 }
 
 # environments:
@@ -48,16 +48,16 @@ function p_vcs {
 #  - cabal sandbox
 
 function p_envs {
-  # check for cabal sandbox in parent directories, recursively
-  local cabal
-  #cabal=( (../)#cabal.sandbox.config(N) )
+    # check for cabal sandbox in parent directories, recursively
+    local cabal
+    #cabal=( (../)#cabal.sandbox.config(N) )
 
-  local envs
-  [[ -n $SSH_CLIENT ]]  && envs+="R"
-  #(( $#cabal ))         && envs+="H"
-  [[ -n $VIRTUAL_ENV ]] && envs+="P"
+    local envs
+    [[ -n $SSH_CLIENT ]]  && envs+="R"
+    #(( $#cabal ))         && envs+="H"
+    [[ -n $VIRTUAL_ENV ]] && envs+="P"
 
-  [[ -n $envs ]] && echo " %F{green}[%f$envs%F{green}]%f"
+    [[ -n $envs ]] && echo " %F{green}[%f$envs%F{green}]%f"
 }
 
 # turn seconds into human readable time
@@ -82,13 +82,11 @@ prompt_cmd_exec_time() {
     (($elapsed > ${PROMPT_CMD_MAX_EXEC_TIME})) && prompt_human_time $elapsed
 }
 
-# calculate the exec time
-p_preexec() {
+prompt_calc_cmd_exec_time() {
     timer=${timer:-$SECONDS}
 }
 
-# display the exec time in right prompt if set threshold was exceeded
-p_precmd() {
+prompt_add_cmd_exec_time_to_rprompt() {
     export RPROMPT="%"
     if [ $timer ]; then
         export RPROMPT="%F{cyan}`prompt_cmd_exec_time` %{$reset_color%}"
@@ -96,11 +94,27 @@ p_precmd() {
     fi
 }
 
-prompt_setup() {
-  add-zsh-hook precmd p_precmd
-  add-zsh-hook preexec p_preexec
+prompt_dynamic_window_title () {
+    if test "$SSH_CONNECTION" != ''; then
+        local title_username="%n@%M | "
+    else
+        local title_username=""
+    fi
 
-  PROMPT='
+    # show the full path in the title
+    case $TERM in
+        xterm*)
+            print -Pn '\e]2;${title_username}%~\a'
+            ;;
+    esac
+}
+
+prompt_setup() {
+    add-zsh-hook precmd prompt_dynamic_window_title
+    add-zsh-hook precmd prompt_add_cmd_exec_time_to_rprompt
+    add-zsh-hook preexec prompt_calc_cmd_exec_time
+
+    PROMPT='
 %(?.%F{blue}.%F{red})λ%f $(p_colored_path)$(p_envs)$(p_vcs)
 $(p_arrow) '
 }
