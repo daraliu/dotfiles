@@ -1,25 +1,42 @@
-# prompt
+# Adapted from
+# https://github.com/blaenk/dots/blob/master/zsh/zsh/prompt.zsh
+# https://github.com/Tarrasch/pure/blob/master/pure.plugin.zsh
+
 setopt prompt_subst
 
-# mode-aware arrow
+# Note to preserve my own and others' sanity
+# git:
+# %b => current branch
+# %a => current action (rebase/merge)
+# prompt:
+# %F => color dict
+# %f => reset color
+# %~ => current path
+# %* => time
+# %n => username
+# %m => shortname host
+# %(?..) => prompt conditional - %(condition.true.false)
 
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+export PROMPT_CMD_MAX_EXEC_TIME=5
+
+# display mode-aware arrow
 function p_arrow {
   if [[ $KEYMAP = "vicmd" ]]; then
-    echo "%F{magenta}»%f"
+    local arrow_color="magenta"
   else
-    echo "%F{cyan}»%f"
+    local arrow_color="cyan"
   fi
+  echo "%F{${arrow_color}}»%f"
 }
 
-# colored path
-
+# display colored path
 function p_colored_path {
   local slash="%F{cyan}/%f"
   echo "${${PWD/#$HOME/~}//\//$slash}"
 }
 
-# git info
-
+# display git info
 function p_vcs {
   vcs_info
   echo $vcs_info_msg_0_
@@ -29,8 +46,6 @@ function p_vcs {
 #  - ssh
 #  - virtualenv
 #  - cabal sandbox
-
-export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 function p_envs {
   # check for cabal sandbox in parent directories, recursively
@@ -45,8 +60,49 @@ function p_envs {
   [[ -n $envs ]] && echo " %F{green}[%f$envs%F{green}]%f"
 }
 
-PROMPT='
+# turn seconds into human readable time
+# 165392 => 1d 21h 56m 32s
+prompt_human_time() {
+    local tmp=$1
+    local days=$(( tmp / 60 / 60 / 24 ))
+    local hours=$(( tmp / 60 / 60 % 24 ))
+    local minutes=$(( tmp / 60 % 60 ))
+    local seconds=$(( tmp % 60 ))
+    (( $days > 0 )) && echo -n "${days}d "
+    (( $hours > 0 )) && echo -n "${hours}h "
+    (( $minutes > 0 )) && echo -n "${minutes}m "
+    echo "${seconds}s"
+}
+
+# display the exec time of the last command if set threshold was exceeded
+prompt_cmd_exec_time() {
+    local stop=$SECONDS
+    local start=${timer:-$stop}
+    integer elapsed=$stop-$start
+    (($elapsed > ${PROMPT_CMD_MAX_EXEC_TIME})) && prompt_human_time $elapsed
+}
+
+# calculate the exec time
+p_preexec() {
+    timer=${timer:-$SECONDS}
+}
+
+# display the exec time in right prompt if set threshold was exceeded
+p_precmd() {
+    export RPROMPT="%"
+    if [ $timer ]; then
+        export RPROMPT="%F{cyan}`prompt_cmd_exec_time` %{$reset_color%}"
+        unset timer
+    fi
+}
+
+prompt_setup() {
+  add-zsh-hook precmd p_precmd
+  add-zsh-hook preexec p_preexec
+
+  PROMPT='
 %(?.%F{blue}.%F{red})λ%f $(p_colored_path)$(p_envs)$(p_vcs)
 $(p_arrow) '
+}
 
-RPROMPT="%"
+prompt_setup "$@"
