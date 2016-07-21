@@ -312,6 +312,7 @@ you should place your code here."
   (global-fci-mode 1)
 
   ;; Scalastyle for flycheck
+  ;; as from https://github.com/syl20bnr/spacemacs/issues/5611
   (setq flycheck-scalastylerc "~/.scalastyle/scalastyle_config.xml" )
   (add-hook 'scala-mode-hook 'flycheck-mode)
 
