@@ -311,6 +311,10 @@ you should place your code here."
   (setq fci-rule-column 100)
   (global-fci-mode 1)
 
+  ;; Scalastyle for flycheck
+  (setq flycheck-scalastylerc "~/.scalastyle/scalastyle_config.xml" )
+  (add-hook 'scala-mode-hook 'flycheck-mode)
+
   ;; ;; Eclim
   ;; (setq eclim-eclipse-dirs '("/usr/bin/eclipse")
   ;;                          '(eclim-executable "/usr/bin/eclim"))
