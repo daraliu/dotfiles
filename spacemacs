@@ -79,10 +79,9 @@ values."
    dotspacemacs-additional-packages
    '(
      feature-mode
-     nlinum
      )
    ;; A list of packages and/or extensions that will not be install and loaded.
-   dotspacemacs-excluded-packages '(linum-mode key-chord)
+   dotspacemacs-excluded-packages '(smooth-scrolling)
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
    ;; are declared in a layer which is not a member of
    ;; the list `dotspacemacs-configuration-layers'. (default t)
@@ -243,11 +242,11 @@ values."
    ;; If non nil smooth scrolling (native-scrolling) is enabled. Smooth
    ;; scrolling overrides the default behavior of Emacs which recenters the
    ;; point when it reaches the top or bottom of the screen. (default t)
-   dotspacemacs-smooth-scrolling t
+   dotspacemacs-smooth-scrolling nil  ;; smooth-scrolling package excluded
    ;; If non nil line numbers are turned on in all `prog-mode' and `text-mode'
    ;; derivatives. If set to `relative', also turns on relative line numbers.
    ;; (default nil)
-   dotspacemacs-line-numbers nil
+   dotspacemacs-line-numbers 'prog-mode
    ;; If non-nil smartparens-strict-mode will be enabled in programming modes.
    ;; (default nil)
    dotspacemacs-smartparens-strict-mode nil
@@ -315,9 +314,6 @@ you should place your code here."
   (setq fci-rule-column 100)
   (global-fci-mode 1)
 
-  ;; Line numbers via nlinum-mode instead of linum mode
-  (global-nlinum-mode)
-
   ;; Disable evil-escape-key-sequence
   (setq evil-escape-key-sequence nil)
 
@@ -326,9 +322,23 @@ you should place your code here."
   (setq flycheck-scalastylerc "~/.scalastyle/scalastyle_config.xml" )
   (add-hook 'scala-mode-hook 'flycheck-mode)
 
+  ;; Automatically insert asterisk in multiline Scala comments
+  (setq-default dotspacemacs-configuration-layers '(
+    (scala :variables scala-auto-insert-asterisk-in-comments t)))
+
+  ;; Don't automatically show the type of the symbol under the cursor
+  (setq-default dotspacemacs-configuration-layers '(
+    (scala :variables scala-enable-eldoc t)))
+
   ;; ;; Eclim
   ;; (setq eclim-eclipse-dirs '("/usr/bin/eclipse")
   ;;                          '(eclim-executable "/usr/bin/eclim"))
+
+  ;; Replacements for smooth-scroll
+  (setq scroll-conservatively 101) ;; move minimum when cursor exits view, instead of recentering
+  (setq mouse-wheel-scroll-amount '(1)) ;; mouse scroll moves 1 line at a time, instead of 5 lines
+  (setq mouse-wheel-progressive-speed nil) ;; on a long mouse scroll keep scrolling by 1 line
+
 
   )
 
