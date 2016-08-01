@@ -46,18 +46,20 @@ filetype plugin indent on    " required
 
 set enc=utf-8
 " Appearance
-set colorcolumn=80
+set colorcolumn=100
 filetype plugin indent on
 "set background=light
 set background=dark
-let g:solarized_termcolors=16
-let g:solarized_termtrans=0
-let g:solarized_degrade=0
+
+let g:solarized_contrast="low"
+let g:solarized_visibility="high"
+
+" let g:solarized_degrade=0
 let g:solarized_bold=1
 let g:solarized_underline=1
 let g:solarized_italic=1
+
 if has('gui_running')
-    colorscheme solarized
     set guioptions-=m  "remove menu bar
     set guioptions-=T  "remove toolbar
     set guioptions-=b  "remove horizontal scroll bar
@@ -66,9 +68,22 @@ if has('gui_running')
     set guioptions-=l  "remove left-hand scroll bar
     set guioptions-=L  "remove left-hand scroll bar when vspendif
 else
-    let g:solarized_termcolors=16
-    set t_Co=16
+    if $TERM =~ "-256color"
+        se t_Co=256
+        let g:solarized_termcolors=256
+        let g:solarized_contrast="high"
+        let g:solarized_termtrans=1
+    endif
 endif
+
+" load color scheme if available
+try
+    colorscheme solarized
+catch /^Vim\%((\a\+)\)\=:E185/
+    " deal with it
+endtry
+
+
 syntax on
 set number
 set guifont=Source\ Code\ Pro\ 10
