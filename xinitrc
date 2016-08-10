@@ -1,7 +1,5 @@
 source ${HOME}/.remapkbd
-# xrdb -merge ~/.Xresources
-
-export _JAVA_AWT_WM_NONREPARENTING=1
+source ${HOME}/.java_gui_fix
 
 nm-applet &
 pulseaudio --start &
