@@ -24,3 +24,6 @@ fi
 wmname "$IRONIC_WM_NAME"
 
 STS
+
+# use system fonts in Swing applications (i.e. JMeter)
+export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
