@@ -79,6 +79,7 @@ values."
    dotspacemacs-additional-packages
    '(
      feature-mode
+     jdee
      )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(smooth-scrolling)
@@ -339,7 +340,11 @@ you should place your code here."
   (setq mouse-wheel-scroll-amount '(1)) ;; mouse scroll moves 1 line at a time, instead of 5 lines
   (setq mouse-wheel-progressive-speed nil) ;; on a long mouse scroll keep scrolling by 1 line
 
+  ;; Path to beanshell bsh-jar
+  (setq bsh-jar "~/.jdee/bsh.jar")
 
+  ;; Path to jdee-server jars directory
+  (setq jdee-server-dir "~/.jdee/jdee-server/target")
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
