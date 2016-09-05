@@ -27,7 +27,7 @@ if command_exists emacs; then
 fi
 
 if command_exists docker-compose; then
-    alias docker-rbu='docker-compose rm --all -f && docker-compose build && docker-compose up'
+    alias docker-rbu='docker-compose rm -f && docker-compose build && docker-compose up'
 fi
 
 if command_exists docker; then
