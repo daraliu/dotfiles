@@ -40,7 +40,11 @@ values."
      (python :variables
              flycheck-flake8-maximum-line-length 99)
      ruby
-     scala
+     (scala :variables
+            ;; Automatically insert asterisk in multiline Scala comments
+            scala-auto-insert-asterisk-in-comments t
+            ;; Don't automatically show the type of the symbol under the cursor
+            scala-enable-eldoc t)
      shell-scripts
      sql
      typescript
@@ -53,19 +57,15 @@ values."
      vagrant
      ;;; !vim
      vim-empty-lines
-     ;;; !window-management
-     eyebrowse
      ;;; other
      auto-completion
      better-defaults
      colors
      finance
      org
-     pcre2el
      restclient
      search-engine
      semantic
-     slime
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
@@ -323,14 +323,6 @@ you should place your code here."
   (setq flycheck-scalastylerc "~/.scalastyle/scalastyle_config.xml" )
   (add-hook 'scala-mode-hook 'flycheck-mode)
 
-  ;; Automatically insert asterisk in multiline Scala comments
-  (setq-default dotspacemacs-configuration-layers '(
-    (scala :variables scala-auto-insert-asterisk-in-comments t)))
-
-  ;; Don't automatically show the type of the symbol under the cursor
-  (setq-default dotspacemacs-configuration-layers '(
-    (scala :variables scala-enable-eldoc t)))
-
   ;; ;; Eclim
   ;; (setq eclim-eclipse-dirs '("/usr/bin/eclipse")
   ;;                          '(eclim-executable "/usr/bin/eclim"))
@@ -349,3 +341,17 @@ you should place your code here."
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (pug-mode minitest insert-shebang hide-comnt helm-purpose window-purpose imenu-list ws-butler which-key web-mode tide spaceline persp-mode org-plus-contrib open-junk-file neotree js2-refactor indent-guide help-fns+ helm-themes helm-pydoc helm-hoogle helm-descbinds helm-ag haskell-snippets git-link evil-unimpaired evil-surround evil-search-highlight-persist ensime sbt-mode ein ace-link ace-jump-helm-line cider ess iedit smartparens helm helm-core haskell-mode flycheck ht markdown-mode projectile magit git-commit hydra yapfify yaml-mode xterm-color wolfram-mode with-editor window-numbering websocket web-beautify volatile-highlights vagrant-tramp vagrant uuidgen use-package typescript-mode toc-org thrift tagedit stickyfunc-enhance stan-mode srefactor sql-indent spacemacs-theme solarized-theme smeargle slim-mode shell-pop scss-mode scala-mode scad-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe restclient restart-emacs rbenv rake rainbow-mode rainbow-identifiers rainbow-delimiters queue quelpa qml-mode pyvenv pytest pyenv-mode py-isort powerline popwin pkg-info pip-requirements paradox orgit org-projectile org-present org-pomodoro org-download org-bullets ob-http noflet mwim multi-term move-text mmm-mode matlab-mode markdown-toc magit-gitflow magit-gh-pulls macrostep lua-mode lorem-ipsum livid-mode live-py-mode linum-relative link-hint less-css-mode ledger-mode julia-mode json-mode js-doc jinja2-mode jdee jade-mode intero info+ ido-vertical-mode hy-mode hungry-delete htmlize hlint-refactor hl-todo hindent highlight-parentheses highlight-numbers highlight-indentation helm-swoop helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-css-scss helm-company helm-c-yasnippet google-translate golden-ratio gnuplot github-search github-clone github-browse-file gitconfig-mode gitattributes-mode git-timemachine git-messenger git-gutter-fringe git-gutter-fringe+ gist gh-md flycheck-pos-tip flycheck-ledger flycheck-haskell flx-ido fish-mode fill-column-indicator feature-mode fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-tutor evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu ess-smart-equals ess-R-object-popup ess-R-data-view eshell-z eshell-prompt-extras esh-help engine-mode emmet-mode elisp-slime-nav dumb-jump diff-hl define-word cython-mode company-web company-tern company-statistics company-shell company-ghci company-ghc company-emacs-eclim company-cabal company-anaconda column-enforce-mode color-identifiers-mode coffee-mode cmm-mode clojure-snippets clj-refactor clean-aindent-mode cl-generic cider-eval-sexp-fu chruby bundler auto-yasnippet auto-highlight-symbol auto-compile arduino-mode ansible-doc ansible aggressive-indent adaptive-wrap ace-window ac-ispell))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
