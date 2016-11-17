@@ -47,11 +47,13 @@ if command_exists docker; then
     alias dockerclean='dockercleanc || true && dockercleani || true && dockercleanv'
 fi
 
-if command_exists docker; then
-fi
-
 if command_exists ffmpeg; then
     ytconvert() {
         ffmpeg -i "$1" -c:v libx264 -crf 18 -preset slow -pix_fmt yuv420p -c:a copy "$2.mkv"
     }
+fi
+
+if command_exists xsel; then
+    alias pbcopy='xsel --clipboard --input'
+    alias pbpaste='xsel --clipboard --output'
 fi
