@@ -37,7 +37,6 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      ;;; +checkers
-     spell-checking
      (syntax-checking :variables
                       syntax-checking-enable-tooltips nil)
      ;;; +emacs
