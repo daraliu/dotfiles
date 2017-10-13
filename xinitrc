@@ -4,4 +4,5 @@ source ${HOME}/.java_gui_fix
 nm-applet &
 pulseaudio --start &
 pasystray &
+xscreensaver &
 awesome
