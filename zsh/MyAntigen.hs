@@ -19,6 +19,7 @@ bundles =
   , bundle "Tarrasch/zsh-autoenv"
   , bundle "Tarrasch/zsh-i-know"
   , bundle "Tarrasch/zsh-mcd"
+  , bundle "arzzen/calc.plugin.zsh"
   -- , bundle "mafredri/zsh-async"
   , bundle "zsh-users/zsh-syntax-highlighting"
   , bundle "zsh-users/zsh-completions"
