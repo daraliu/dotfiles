@@ -43,7 +43,9 @@ bindkey '^e' end-of-line
 
 export TERM=xterm-256color
 
-source ~/.zsh/antigen-hs/init.zsh
+# switched to antibody
+# source ~/.zsh/antigen-hs/init.zsh
+source ~/.zsh_plugins.sh
 
 # strict control over source order
 sources=(

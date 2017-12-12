@@ -1,0 +1,7 @@
+Tarrasch/zsh-bd
+caarlos0/jvm
+robbyrussell/oh-my-zsh folder:plugins/extract
+wbinglee/zsh-wakatime
+zsh-users/zsh-completions
+
+zsh-users/zsh-syntax-highlighting
