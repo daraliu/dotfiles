@@ -1,5 +1,5 @@
 #/bin/sh
 
-solarized-light-termite
+solarized-dark-termite
 mkdir -p ~/.mpd/playlists
 mkdir -p ~/music
