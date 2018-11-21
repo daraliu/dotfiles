@@ -2,6 +2,6 @@
 [ -f ${HOME}/.java_gui_fix ] && source ${HOME}/.java_gui_fix
 
 nm-applet &
-pasystray &
 xscreensaver &
+xfce4-power-manager &
 awesome

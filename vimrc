@@ -35,7 +35,6 @@ Plugin 'joonty/vim-phpqa'
 Plugin 'chilicuil/vim-sml-coursera'
 
 Plugin 'tpope/vim-markdown'
-Plugin 'evanmiller/nginx-vim-syntax'
 Plugin 'arnaud-lb/vim-php-namespace'
 Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'vim-scripts/a.vim'
