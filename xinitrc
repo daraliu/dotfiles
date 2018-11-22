@@ -4,4 +4,5 @@
 nm-applet &
 xscreensaver &
 xfce4-power-manager &
+xcompmgr &
 awesome
