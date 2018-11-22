@@ -39,6 +39,7 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(awful.util.get_themes_dir() .. "default/theme.lua")
+beautiful.wallpaper = awful.util.get_configuration_dir() .. "solarized_arch.png"
 
 -- This is used later as the default terminal and editor to run.
 terminal = "termite"
@@ -159,7 +160,6 @@ local tasklist_buttons = awful.util.table.join(
                      awful.button({ }, 5, function ()
                                               awful.client.focus.byidx(-1)
                                           end))
-
 local function set_wallpaper(s)
     -- Wallpaper
     if beautiful.wallpaper then
