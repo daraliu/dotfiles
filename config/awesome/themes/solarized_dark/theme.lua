@@ -1,6 +1,6 @@
----------------------------
--- Default awesome theme --
----------------------------
+----------------------------------
+-- Solarized Dark Awesome theme --
+----------------------------------
 
 local theme_assets = require("beautiful.theme_assets")
 local xresources = require("beautiful.xresources")
