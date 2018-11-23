@@ -55,7 +55,7 @@ function p_envs {
     local envs
     [[ -n $SSH_CLIENT ]]  && envs+="R"
     #(( $#cabal ))         && envs+="H"
-    [[ -n $VIRTUAL_ENV ]] && envs+="P"
+    [[ -n $VIRTUAL_ENV ]] && envs+=$(basename $VIRTUAL_ENV)
 
     [[ -n $envs ]] && echo " %F{green}[%f$envs%F{green}]%f"
 }
