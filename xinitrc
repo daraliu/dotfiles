@@ -5,5 +5,5 @@ nm-applet &
 redshift &
 xscreensaver &
 xfce4-power-manager &
-xcompmgr &
+compton -b --config $HOME/.config/compton/compton.conf &
 awesome
