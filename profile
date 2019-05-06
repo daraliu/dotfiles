@@ -9,3 +9,5 @@ export PATH=$HOME/bin:$HOME/.virtualenvs/pygmentize/bin:$HOME/.cabal/bin/:$PATH
 export BROWSER="google-chrome-stable"
 export EDITOR=vim
 export XAUTHORITY=$HOME/.Xauthority
+export PATH="$PATH:$HOME/go/bin"
+export GO111MODULES=on
