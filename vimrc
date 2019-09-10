@@ -21,7 +21,6 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'Lokaltog/vim-powerline'
 Plugin 'scrooloose/nerdcommenter'
 
-Plugin 'joonty/vdebug'
 Plugin 'vim-scripts/taglist.vim'
 Plugin 'vim-scripts/filetype.vim'
 "Plugin 'Valloric/YouCompleteMe'
