@@ -1,4 +1,4 @@
 Tarrasch/zsh-bd
-robbyrussell/oh-my-zsh folder:plugins/extract
+robbyrussell/oh-my-zsh path:plugins/extract
 wbinglee/zsh-wakatime
 zsh-users/zsh-syntax-highlighting
