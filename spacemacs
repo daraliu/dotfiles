@@ -63,7 +63,6 @@ values."
      yaml
      ;;; !source-control
      git
-     github
      version-control
      ;;; +tools
      ansible
