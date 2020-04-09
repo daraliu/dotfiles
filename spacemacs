@@ -46,22 +46,15 @@ values."
      ;;; +lang
      clojure
      emacs-lisp
-     ess
      haskell
      html
      ipython-notebook
-     java
      javascript
      lua
      markdown
      (python :variables
              flycheck-flake8-maximum-line-length 99)
      ruby
-     (scala :variables
-            ;; Automatically insert asterisk in multiline Scala comments
-            scala-auto-insert-asterisk-in-comments t
-            ;; Don't automatically show the type of the symbol under the cursor
-            scala-enable-eldoc t)
      shell-scripts
      sml
      sql
@@ -383,46 +376,8 @@ you should place your code here."
   ;; Disable evil-escape-key-sequence
   (setq evil-escape-key-sequence nil)
 
-  ;; Scalastyle for flycheck
-  ;; as from https://github.com/syl20bnr/spacemacs/issues/5611
-  (setq flycheck-scalastylerc "~/.scalastyle/scalastyle_config.xml" )
-  (add-hook 'scala-mode-hook 'flycheck-mode)
-
-  ;; ;; Eclim
-  ;; (setq eclim-eclipse-dirs '("/usr/bin/eclipse")
-  ;;                          '(eclim-executable "/usr/bin/eclim"))
-
   ;; Replacements for smooth-scroll
   (setq scroll-conservatively 101) ;; move minimum when cursor exits view, instead of recentering
   (setq mouse-wheel-scroll-amount '(1)) ;; mouse scroll moves 1 line at a time, instead of 5 lines
   (setq mouse-wheel-progressive-speed nil) ;; on a long mouse scroll keep scrolling by 1 line
-
-  ;; Path to beanshell bsh-jar
-  (setq bsh-jar "~/.jdee/bsh.jar")
-
-  ;; Path to jdee-server jars directory
-  (setq jdee-server-dir "~/.jdee/jdee-server/target")
-  )
-
-;; Do not write anything past this comment. This is where Emacs will
-;; auto-generate custom variable definitions.
-(defun dotspacemacs/emacs-custom-settings ()
-  "Emacs custom settings.
-This is an auto-generated function, do not modify its content directly, use
-Emacs customize menu instead.
-This function is called at the very end of Spacemacs initialization."
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (vimrc-mode ob-sml sml-mode flyspell-correct-helm flyspell-correct evil-snipe evil-commentary evil-cleverparens dactyl-mode auto-dictionary yapfify yaml-mode xterm-color ws-butler wolfram-mode winum which-key web-mode web-beautify volatile-highlights vagrant-tramp vagrant uuidgen use-package unfill toc-org tide thrift tagedit stickyfunc-enhance stan-mode srefactor sql-indent spacemacs-theme spaceline solarized-theme smeargle slim-mode shell-pop scss-mode scad-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe restclient-helm restart-emacs rbenv rake rainbow-mode rainbow-identifiers rainbow-delimiters quelpa qml-mode pyvenv pytest pyenv-mode py-isort pug-mode popwin pip-requirements persp-mode paradox orgit org-projectile org-present org-pomodoro org-plus-contrib org-download org-bullets open-junk-file ob-restclient ob-http noflet neotree mwim multi-term move-text mmm-mode minitest matlab-mode markdown-toc magit-gitflow magit-gh-pulls macrostep lua-mode lorem-ipsum livid-mode live-py-mode linum-relative link-hint less-css-mode ledger-mode json-mode js2-refactor js-doc jinja2-mode jdee intero insert-shebang info+ indent-guide ido-vertical-mode hy-mode hungry-delete htmlize hlint-refactor hl-todo hindent highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-pydoc helm-purpose helm-projectile helm-mode-manager helm-make helm-hoogle helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag haskell-snippets google-translate golden-ratio gnuplot github-search github-clone github-browse-file gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gist gh-md flycheck-pos-tip flycheck-ledger flycheck-haskell flx-ido fish-mode fill-column-indicator feature-mode fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu ess-smart-equals ess-R-object-popup ess-R-data-view eshell-z eshell-prompt-extras esh-help ensime engine-mode emmet-mode elisp-slime-nav ein dumb-jump diff-hl define-word cython-mode company-web company-tern company-statistics company-shell company-restclient company-ghci company-ghc company-emacs-eclim company-cabal company-ansible company-anaconda column-enforce-mode color-identifiers-mode coffee-mode cmm-mode clojure-snippets clj-refactor clean-aindent-mode cider-eval-sexp-fu chruby bundler auto-yasnippet auto-highlight-symbol auto-compile arduino-mode ansible-doc ansible aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
 )
