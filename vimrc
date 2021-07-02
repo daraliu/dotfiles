@@ -99,12 +99,12 @@ set backspace=indent,eol,start
 "set nowritebackup
 "set noswapfile
 
-se autoread               " Automatically read a file that has changed on disk
-se clipboard=unnamedplus  " Use default X-System register for copy and paste
+set autoread               " Automatically read a file that has changed on disk
+set clipboard=unnamedplus  " Use default X-System register for copy and paste
 se history=200            " Sets how many lines of history VIM has to remember
-se undolevels=1000        " Number of changes that can be undone
-se undoreload=10000       " Number lines to save for undo on a buffer reload
-se noundofile             " Don't keep a persistent undofile
+set undolevels=1000        " Number of changes that can be undone
+set undoreload=10000       " Number lines to save for undo on a buffer reload
+set noundofile             " Don't keep a persistent undofile
 
 "" delete without yanking by default
 "nnoremap d "_d
