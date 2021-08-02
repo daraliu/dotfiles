@@ -57,3 +57,5 @@ if command_exists xsel; then
     alias pbcopy='xsel --clipboard --input'
     alias pbpaste='xsel --clipboard --output'
 fi
+
+alias catcsv='awk "(NR == 1) || (FNR > 1)"'
