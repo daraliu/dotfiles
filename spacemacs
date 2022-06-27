@@ -45,47 +45,34 @@ values."
      org
      semantic
      ;;; +lang
-     clojure
      emacs-lisp
-     haskell
-     html
      ipython-notebook
-     javascript
-     julia
      lua
      markdown
      (python :variables
              flycheck-flake8-maximum-line-length 99)
-     ruby
      shell-scripts
-     sml
      sql
-     typescript
      vimscript
      yaml
      ;;; !source-control
-     git
+     ;;git
      version-control
      ;;; +tools
      ansible
-     finance
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
      tmux
-     vagrant
      ;;; +completion
      auto-completion
      ;;; +themes
      colors
      ;;; +vim
-     evil-cleverparens
      evil-commentary
      evil-snipe
      vim-empty-lines
      vinegar
-     ;;; +web-services
-     search-engine
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -317,7 +304,7 @@ values."
    dotspacemacs-highlight-delimiters 'all
    ;; If non-nil, advise quit functions to keep server open when quitting.
    ;; (default nil)
-   dotspacemacs-persistent-server t
+   dotspacemacs-persistent-server nil
    ;; List of search tool executable names. Spacemacs uses the first installed
    ;; tool of the list. Supported tools are `rg', `ag', `pt', `ack' and `grep'.
    ;; (default '("rg" "ag" "pt" "ack" "grep"))
@@ -357,9 +344,6 @@ you should place your code here."
   (define-key evil-visual-state-map "j" 'evil-next-visual-line)
   (define-key evil-visual-state-map "k" 'evil-previous-visual-line)
 
-  ;; Ledger
-  (setq ledger-post-amount-alignment-column 68)
-
   ;; Remove fly-spell for markdown, org and text-files.
   (remove-hook 'text-mode-hook 'enable-flyspell-mode)
   (remove-hook 'org-mode-hook 'enable-flyspell-mode)
@@ -370,9 +354,9 @@ you should place your code here."
         browse-url-generic-program "google-chrome-stable")
 
   ;; Visual line length set to 100
-  (define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
-  (setq fci-rule-column 100)
-  (global-fci-mode 1)
+  ;;(define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
+  ;;(setq fci-rule-column 100)
+  ;;(global-fci-mode 1)
 
   ;; Disable evil-escape-key-sequence
   (setq evil-escape-key-sequence nil)
@@ -389,7 +373,7 @@ you should place your code here."
  ;; If there is more than one, they won't work right.
  '(evil-want-Y-yank-to-eol nil)
  '(package-selected-packages
-   '(csv-mode solarized-theme yapfify yaml-mode xterm-color ws-butler winum which-key web-mode web-beautify volatile-highlights vimrc-mode vagrant-tramp vagrant uuidgen use-package unfill toc-org tide tagedit stickyfunc-enhance srefactor sql-indent spaceline smeargle slim-mode shell-pop scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe restart-emacs rbenv rake rainbow-mode rainbow-identifiers rainbow-delimiters pyvenv pytest pyenv-mode py-isort pug-mode popwin pip-requirements persp-mode paradox orgit org-projectile org-present org-pomodoro org-mime org-download org-bullets open-junk-file ob-sml neotree mwim multi-term move-text mmm-mode minitest markdown-toc magit-gitflow macrostep lua-mode lorem-ipsum livid-mode live-py-mode linum-relative link-hint ledger-mode json-mode js2-refactor js-doc jinja2-mode jdee intero insert-shebang indent-guide hy-mode hungry-delete htmlize hlint-refactor hl-todo hindent highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make helm-hoogle helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag haskell-snippets google-translate golden-ratio gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gh-md fuzzy flycheck-pos-tip flycheck-ledger flycheck-haskell flx-ido fish-mode fill-column-indicator feature-mode fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-snipe evil-search-highlight-persist evil-numbers evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-commentary evil-cleverparens evil-args evil-anzu eshell-z eshell-prompt-extras esh-help engine-mode emmet-mode elisp-slime-nav ein dumb-jump diminish diff-hl define-word dactyl-mode cython-mode company-web company-tern company-statistics company-shell company-ghci company-ghc company-cabal company-ansible company-anaconda column-enforce-mode color-identifiers-mode coffee-mode cmm-mode clojure-snippets clj-refactor clean-aindent-mode cider-eval-sexp-fu chruby bundler auto-yasnippet auto-highlight-symbol auto-compile ansible-doc ansible aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
+   '(typescript-mode markdown-mode git-gutter polymode cider sesman seq parseedn clojure-mode parseclj anzu iedit smartparens evil request helm helm-core haskell-mode company flycheck async projectile org-plus-contrib magit magit-section git-commit with-editor transient js2-mode dash csv-mode solarized-theme yapfify yaml-mode xterm-color ws-butler winum which-key web-mode web-beautify volatile-highlights vimrc-mode vagrant-tramp vagrant uuidgen use-package unfill toc-org tide tagedit stickyfunc-enhance srefactor sql-indent spaceline smeargle slim-mode shell-pop scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe restart-emacs rbenv rake rainbow-mode rainbow-identifiers rainbow-delimiters pyvenv pytest pyenv-mode py-isort pug-mode popwin pip-requirements persp-mode paradox orgit org-projectile org-present org-pomodoro org-mime org-download org-bullets open-junk-file ob-sml neotree mwim multi-term move-text mmm-mode minitest markdown-toc magit-gitflow macrostep lua-mode lorem-ipsum livid-mode live-py-mode linum-relative link-hint ledger-mode json-mode js2-refactor js-doc jinja2-mode jdee intero insert-shebang indent-guide hy-mode hungry-delete htmlize hlint-refactor hl-todo hindent highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make helm-hoogle helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag haskell-snippets google-translate golden-ratio gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gh-md fuzzy flycheck-pos-tip flycheck-ledger flycheck-haskell flx-ido fish-mode fill-column-indicator feature-mode fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-snipe evil-search-highlight-persist evil-numbers evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-commentary evil-cleverparens evil-args evil-anzu eshell-z eshell-prompt-extras esh-help engine-mode emmet-mode elisp-slime-nav ein dumb-jump diminish diff-hl define-word dactyl-mode cython-mode company-web company-tern company-statistics company-shell company-ghci company-ghc company-cabal company-ansible company-anaconda column-enforce-mode color-identifiers-mode coffee-mode cmm-mode clojure-snippets clj-refactor clean-aindent-mode cider-eval-sexp-fu chruby bundler auto-yasnippet auto-highlight-symbol auto-compile ansible-doc ansible aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
