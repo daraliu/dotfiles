@@ -1,5 +1,4 @@
 #/bin/sh
-
-solarized-dark-termite
 mkdir -p ~/.mpd/playlists
 mkdir -p ~/music
+mkdir -p ~/.vim_tmp

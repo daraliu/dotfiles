@@ -130,10 +130,10 @@ let g:ycm_key_detailed_diagnostics = ''
 
 " prevent vim from littering directories with swap and ~ files
 " tell vim where to put its backup files
-set backupdir=~/vim_tmp
+set backupdir=~/.vim_tmp
 
 " tell vim where to put swap files
-set dir=~/vim_tmp
+set dir=~/.vim_tmp
 
 set history=256
 set ruler
