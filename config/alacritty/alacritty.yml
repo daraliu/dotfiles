@@ -757,7 +757,7 @@ key_bindings:
   #- { key: End,       mods: Shift,   mode: ~Alt,        action: ScrollToBottom }
 
   # Vi Mode
-  - { key: Escape,                      mode: ~Search, action: ToggleViMode          }
+  - { key: Escape, mods: Shift|Control, mode: ~Search, action: ToggleViMode          }
   #- { key: Space,  mods: Shift|Control, mode: ~Search,    action: ToggleViMode            }
   #- { key: Space,  mods: Shift|Control, mode: Vi|~Search, action: ScrollToBottom          }
   #- { key: Escape,                      mode: Vi|~Search, action: ClearSelection          }
@@ -878,3 +878,9 @@ key_bindings:
 
   # Print all received window events.
   #print_events: false
+
+window:
+  opacity: 1.0
+
+import:
+  - ~/.alacritty-colorscheme/themes/solarized_dark.yaml
