@@ -2,3 +2,4 @@
 mkdir -p ~/.mpd/playlists
 mkdir -p ~/music
 mkdir -p ~/.vim_tmp
+git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes

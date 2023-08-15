@@ -883,4 +883,4 @@ window:
   opacity: 1.0
 
 import:
-  - ~/.alacritty-colorscheme/themes/solarized_dark.yaml
+  - ~/.config/alacritty/themes/themes/solarized_dark.yaml
