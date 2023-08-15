@@ -1,6 +1,0 @@
-#!/bin/sh
-
-cat ~/.dotfiles/config/termite/base \
-    ~/.dotfiles/config/termite/solarized-dark > \
-    ~/.config/termite/config
-killall -USR1 termite

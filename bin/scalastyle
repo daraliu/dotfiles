@@ -1,2 +1,0 @@
-#!/bin/bash
-java -jar /home/${USER}/.scalastyle/scalastyle_2.11-0.6.0-batch.jar "$@"
