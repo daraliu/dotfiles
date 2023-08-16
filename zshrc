@@ -13,8 +13,8 @@ bashcompinit
 promptinit
 colors
 
-## until switching to xmonad window manager
-# source $HOME/.profile
+source $HOME/.profile
+source /etc/profile
 
 # History settings
 HISTFILE=~/.zhistory
