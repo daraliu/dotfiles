@@ -44,7 +44,9 @@ bindkey '^e' end-of-line
 export TERM=xterm-256color
 
 # switched to antidote
-source ~/.zsh_plugins.sh
+source /usr/share/zsh-antidote/antidote.zsh
+antidote load
+# source ~/.zsh_plugins.sh
 
 # strict control over source order
 sources=(
@@ -82,3 +84,6 @@ if [ -f "/home/hm/mambaforge/etc/profile.d/mamba.sh" ]; then
 fi
 # <<< conda initialize <<<
 
+
+# Created by `pipx` on 2024-06-10 16:09:09
+export PATH="$PATH:/home/hm/.local/bin"
