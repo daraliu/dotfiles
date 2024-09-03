@@ -5,4 +5,4 @@ redshift &
 nm-applet &
 xscreensaver &
 xfce4-power-manager &
-# compton -b --config $HOME/.config/compton/compton.conf &
+picom -b --config $HOME/.config/picom/picom.conf &
