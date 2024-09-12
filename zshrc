@@ -44,7 +44,12 @@ bindkey '^e' end-of-line
 export TERM=xterm-256color
 
 # switched to antidote
-source /usr/share/zsh-antidote/antidote.zsh
+if [[ -e /usr/share/zsh-antidote/antidote.zsh ]]; then
+    source /usr/share/zsh-antidote/antidote.zsh
+fi
+if [[ -e $HOME/.antidote/antidote.zsh ]]; then
+    source $HOME/.antidote/antidote.zsh
+fi
 antidote load
 # source ~/.zsh_plugins.sh
 
