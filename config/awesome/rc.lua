@@ -327,7 +327,14 @@ globalkeys = gears.table.join(
               {description = "lua execute prompt", group = "awesome"}),
     -- Menubar
     awful.key({ modkey }, "p", function() menubar.show() end,
-              {description = "show the menubar", group = "launcher"})
+              {description = "show the menubar", group = "launcher"}),
+    -- Scrot Screenshots
+    awful.key({                   }, "Print", function () awful.spawn.with_shell("sleep 0.2 && scrot -s -e 'mv $f ~/screenshots/'") end,
+          {description = "take screenshot of selection", group = "screen"}),
+    awful.key({ "Shift",          }, "Print", function () awful.spawn.with_shell("sleep 0.2 && scrot -u -e 'mv $f ~/screenshots/'") end,
+          {description = "take screenshot of focused window", group = "screen"}),
+    awful.key({ "Shift", "Control"}, "Print", function () awful.spawn.with_shell("sleep 0.2 && scrot -e 'mv $f ~/screenshots/'") end,
+          {description = "take screenshot of all screens", group = "screen"})
 )
 
 clientkeys = gears.table.join(
