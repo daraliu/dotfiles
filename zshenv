@@ -26,3 +26,4 @@ path=($^path(N))
 
 # Add ~/texlive/2015/texmf-dist/doc/info to INFOPATH.
 # Add ~/texlive/2015/texmf-dist/doc/man to MANPATH
+. "$HOME/.cargo/env"
