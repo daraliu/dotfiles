@@ -61,3 +61,7 @@ fi
 alias catcsv='awk "(NR == 1) || (FNR > 1)"'
 
 alias at='(alacritty --working-directory=$(pwd) > /dev/null 2>&1 &)'
+
+bd() {
+  cd "${PWD/\/$1*/}/$1"
+}
